@@ -59,8 +59,8 @@ spec:
 ```
 The **spec.selector.app = nginx-ingress** label will map these services to the **nginx-ingress** deployment already running.
 
-Deploy F5 Container Ingress Service
------------------------------------
+Deploy F5 Container Ingress Services
+------------------------------------
 
 We'll have to make some changes to the current CIS deployment args and redeploy.
  
