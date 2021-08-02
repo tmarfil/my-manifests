@@ -65,10 +65,12 @@ Deploy F5 Container Ingress Service
 We'll have to make some changes to the current CIS deployment args and redeploy.
  
 **custom-resource-mode: true**
-CIS will monitor the kube-api and watch for changes to "TransportServer" Custom Resource Definitions (CRDs). The TransportServer CRDs will create a Virtual Servers on the Big-IP. All other resource types will be ignored (ConfigMaps with AS3 or ingress).
+
+    CIS will monitor the kube-api and watch for changes to "TransportServer" Custom Resource Definitions (CRDs). The TransportServer CRDs will create Virtual Servers on the Big-IP. All other resource types will be ignored (ConfigMaps with AS3 or ingress).
  
 **pool-member-type: nodeport**
-CIS will monitor the kube-api and dynamically discover and populate the pool members on the Big-IP with Kubernets worker nodes and high port (3XXXX) exposing the NGINX Ingress service.
+
+    CIS will monitor the kube-api and dynamically discover and populate the pool members on the Big-IP with Kubernetes worker nodes and high port (3XXXX) exposing the NGINX Ingress service.
 
 Example _cis_deployment.yaml_:
 ```
@@ -132,9 +134,16 @@ Create two TransportServer CRDs in the nginx-ingress namespace:
 * transport-server-80
 * transport-server-443 
 
-The TransportServer CRDs will create the F5 Big-IP Virtual Servers. For service discovery to work the name of the nginx-ingress nodeport services we created previously must match the spec.pool.service in the TransportServer manifest: 
+The TransportServer CRDs will create the F5 Big-IP Virtual Servers. For service discovery to work, the name of the nginx-ingress nodeport services we created previously must match the spec.pool.service in the TransportServer manifest: 
 
 _spec.pool.service = nginx-ingress-443_
+
+---
+**NOTE**
+
+Replace the virtualServerAddress below with the IP address assigned to your F5 Big-IP Virtual Server
+
+---
 
 Example _crd-transport-server.yaml_:
 ```
