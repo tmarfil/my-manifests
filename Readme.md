@@ -66,11 +66,11 @@ We'll have to make some changes to the current CIS deployment args and redeploy.
  
 **custom-resource-mode: true**
 
-    CIS will monitor the kube-api and watch for changes to "TransportServer" Custom Resource Definitions (CRDs). The TransportServer CRDs will create Virtual Servers on the Big-IP. All other resource types will be ignored (ConfigMaps with AS3 or ingress).
+CIS will monitor the kube-api and watch for changes to "TransportServer" Custom Resource Definitions (CRDs). The TransportServer CRDs will create Virtual Servers on the Big-IP. All other resource types will be ignored (ConfigMaps with AS3 or ingress).
  
 **pool-member-type: nodeport**
 
-    CIS will monitor the kube-api and dynamically discover and populate the pool members on the Big-IP with Kubernetes worker nodes and high port (3XXXX) exposing the NGINX Ingress service.
+CIS will monitor the kube-api and dynamically discover and populate the pool members on the Big-IP with Kubernetes worker nodes and high port (3XXXX) exposing the NGINX Ingress service.
 
 Example _cis_deployment.yaml_:
 ```
