@@ -117,7 +117,7 @@ spec:
             # https://clouddocs.f5.com/containers/latest/
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=https://x.x.x.x:443",
+            "--bigip-url=https://x.x.x.x",
             "--bigip-partition=k8s-bigip-ctlr",
             "--insecure",
             "--pool-member-type=nodeport",
